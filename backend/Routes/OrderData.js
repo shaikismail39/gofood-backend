@@ -44,9 +44,9 @@ router.post('/myOrderData', async (req, res) => {
     const { email } = req.body;
 
     // Example: Assuming 'Order' is your Mongoose model
-    const orders = await Order.find({ email });
+    const orders = await Order.find({ email: email });
 
-    res.json(orders);
+    res.json({ data: orders });
   } catch (error) {
     console.error('Error fetching orders:', error);
     res.status(500).json({ error: 'Failed to fetch orders' });
